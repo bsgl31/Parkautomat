@@ -54,6 +54,9 @@ public class Kasse {
             }
         }
 
+        // Sollte noch Geld übrig sein konnte nicht alles gewechselt werden
+        if(cent != 0) throw new RuntimeException("Nicht genug Wechselgeld");
+
         // Wenn alles erfolgreich war, setze die Geldmenge der Kasse auf die neue
         // geldmenge + setze die Menge der bezahlten Geldmenge auf die neue Geldmenge
         this.geldmenge = tempMenge;
