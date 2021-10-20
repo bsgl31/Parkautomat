@@ -1,5 +1,8 @@
 package de.dvspla;
 
+/**
+ * Repräsentiert eine Kasse
+ */
 public class Kasse {
 
     private Geldmenge geldmenge;
