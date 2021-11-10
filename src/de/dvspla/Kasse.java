@@ -36,9 +36,9 @@ public class Kasse {
             if(tempBezahlt.getMoney(type) > 0) {
                 try {
                     tempMenge.modifyMoney(type, tempBezahlt.getMoney(type));
-                    tempBezahlt.modifyMoney(type, -tempMenge.getMoney(type));
+                    tempBezahlt.modifyMoney(type, -tempBezahlt.getMoney(type));
                 } catch (RuntimeException ex) {
-                    throw new RuntimeException("Nicht genug Wechselgeld");
+                    throw new RuntimeException("Nicht genug Wechselgeld im Automat");
                 }
             }
 
@@ -55,11 +55,11 @@ public class Kasse {
         }
 
         // Sollte noch Geld übrig sein konnte nicht alles gewechselt werden
-        if(cent != 0) throw new RuntimeException("Nicht genug Wechselgeld");
+        if(cent != 0) throw new RuntimeException("Nicht genug Wechselgeld übrig");
 
         // Wenn alles erfolgreich war, setze die Geldmenge der Kasse auf die neue
         // geldmenge + setze die Menge der bezahlten Geldmenge auf die neue Geldmenge
-        this.geldmenge = tempMenge;
+        this.geldmenge.setMoney(tempMenge.getMoney());
         bezahlt.setMoney(tempBezahlt.getMoney());
         return wechselgeld;
     }

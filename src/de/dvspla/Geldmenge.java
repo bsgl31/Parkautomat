@@ -5,7 +5,9 @@ import java.util.StringJoiner;
 
 public class Geldmenge {
 
-    private final int[] money;
+    public static final int[] EMPTY = {0, 0, 0, 0, 0, 0, 0, 0};
+
+    protected final int[] money;
 
     public Geldmenge(int cent10, int cent20, int cent50, int euro1, int euro2, int euro5, int euro10, int euro20) {
         money = new int[]{cent10, cent20, cent50, euro1, euro2, euro5, euro10, euro20};
@@ -30,8 +32,7 @@ public class Geldmenge {
 
     public void setMoney(int[] money) {
         for(int i = 0; i < money.length; i++) {
-            if(money[i] < 0) throw new RuntimeException("Money must be >= 0");
-            this.money[i] = money[i];
+            setMoney(MoneyType.values()[i], money[i]);
         }
     }
 

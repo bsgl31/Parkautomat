@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="468.0" prefWidth="491.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dvspla.ParkautomatGUIFormController">
+    <Label alignment="CENTER" layoutX="13.0" layoutY="14.0" prefHeight="55.0" prefWidth="466.0" text="Parkautomat">
+        <font>
+            <Font size="38.0" />
+        </font>
+    </Label>
+    <TitledPane collapsible="false" focusTraversable="false" layoutX="13.0" layoutY="69.0" prefHeight="89.0" prefWidth="466.0" text="Bestand">
+        <BorderPane prefHeight="200.0" prefWidth="200.0">
+            <center>
+                <HBox fx:id="hboxBestand" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <VBox prefHeight="44.0" prefWidth="53.0">
+                        <Label text="10ct" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="10.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="20ct" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="63.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="50ct" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="116.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="1€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="169.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="2€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="222.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="5€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="222.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="10€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="328.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="20€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox alignment="CENTER" layoutX="381.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="0ct">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </VBox>
+                </HBox>
+            </center>
+        </BorderPane>
+    </TitledPane>
+    <Label layoutX="20.0" layoutY="170.0" text="Betrag">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="labelCurrentAmount" layoutX="89.0" layoutY="170.0" text="9,90€">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Button layoutX="182.0" layoutY="171.0" mnemonicParsing="false" onAction="#onRandomAmountButtonClick" text="Zufälliger Betrag" />
+    <BorderPane layoutX="12.0" layoutY="213.0" prefHeight="27.0" prefWidth="466.0">
+        <center>
+            <HBox fx:id="hboxButtons" prefHeight="15.0" prefWidth="466.0" BorderPane.alignment="CENTER">
+                <Button fx:id="button10ct" mnemonicParsing="false" onAction="#onMoneyButtonClick" prefHeight="34.0" prefWidth="61.0" text="10ct" />
+                <Button fx:id="button20ct" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onMoneyButtonClick" prefHeight="34.0" prefWidth="61.0" text="20ct" />
+                <Button fx:id="button50ct" layoutX="71.0" layoutY="10.0" mnemonicParsing="false" onAction="#onMoneyButtonClick" prefHeight="34.0" prefWidth="61.0" text="50ct" />
+                <Button fx:id="button1euro" layoutX="132.0" layoutY="10.0" mnemonicParsing="false" onAction="#onMoneyButtonClick" prefHeight="34.0" prefWidth="61.0" text="1€" />
+                <Button fx:id="button2euro" layoutX="193.0" layoutY="10.0" mnemonicParsing="false" onAction="#onMoneyButtonClick" prefHeight="34.0" prefWidth="61.0" text="2€" />
+                <Button fx:id="button5euro" layoutX="254.0" layoutY="10.0" mnemonicParsing="false" onAction="#onMoneyButtonClick" prefHeight="34.0" prefWidth="61.0" text="5€" />
+                <Button fx:id="button10euro" layoutX="315.0" layoutY="10.0" mnemonicParsing="false" onAction="#onMoneyButtonClick" prefHeight="34.0" prefWidth="61.0" text="10€" />
+                <Button fx:id="button20euro" layoutX="376.0" layoutY="10.0" mnemonicParsing="false" onAction="#onMoneyButtonClick" prefHeight="34.0" prefWidth="61.0" text="20€" />
+            </HBox>
+        </center>
+    </BorderPane>
+    <TitledPane collapsible="false" focusTraversable="false" layoutX="13.0" layoutY="262.0" prefHeight="89.0" prefWidth="466.0" text="Gezahlt">
+        <BorderPane prefHeight="200.0" prefWidth="200.0">
+            <center>
+                <HBox fx:id="hboxGezahlt" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <VBox prefHeight="44.0" prefWidth="53.0">
+                        <Label text="10ct" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="10.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="20ct" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="63.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="50ct" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="116.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="1€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="169.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="2€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="222.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="5€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="222.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="10€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="328.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="20€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox alignment="CENTER" layoutX="381.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="0ct">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </VBox>
+                </HBox>
+            </center>
+        </BorderPane>
+    </TitledPane>
+    <TitledPane collapsible="false" focusTraversable="false" layoutX="13.0" layoutY="363.0" prefHeight="89.0" prefWidth="466.0" text="Rückgeld">
+        <BorderPane prefHeight="200.0" prefWidth="200.0">
+            <center>
+                <HBox fx:id="hboxRueckgeld" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <VBox prefHeight="44.0" prefWidth="53.0">
+                        <Label text="10ct" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="10.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="20ct" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="63.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="50ct" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="116.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="1€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="169.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="2€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="222.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="5€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="222.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="10€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox layoutX="328.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label text="20€" />
+                        <TextField editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="40.0" text="0" />
+                    </VBox>
+                    <VBox alignment="CENTER" layoutX="381.0" layoutY="10.0" prefHeight="44.0" prefWidth="53.0">
+                        <Label fx:id="" text="0ct">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </VBox>
+                </HBox>
+            </center>
+        </BorderPane>
+    </TitledPane>
+</AnchorPane>
