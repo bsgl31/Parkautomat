@@ -1,5 +1,8 @@
 package de.dvspla;
 
+import de.dvspla.exceptions.UnzureichendeGeldmengeException;
+import de.dvspla.exceptions.WechselgeldException;
+
 /**
  * Repräsentiert eine Kasse
  */
@@ -15,9 +18,9 @@ public class Kasse {
         this.geldmenge = new Geldmenge(kasse.geldmenge);
     }
 
-    public Geldmenge bezahle(int cent, Geldmenge bezahlt) {
+    public Geldmenge bezahle(int cent, Geldmenge bezahlt) throws WechselgeldException {
         if(cent % 10 != 0) throw new RuntimeException("Kein 10ct-Betrag");
-        if (bezahlt.getBetrag() < cent) throw new RuntimeException("Nicht genug Geld");
+        if (bezahlt.getBetrag() < cent) throw new UnzureichendeGeldmengeException("Nicht genug Geld", cent);
 
         // kopiert aktuelle Geldmenge und angegebene Bezahlt Menge
         Geldmenge tempMenge = new Geldmenge(this.geldmenge);
@@ -38,7 +41,7 @@ public class Kasse {
                     tempMenge.modifyMoney(type, tempBezahlt.getMoney(type));
                     tempBezahlt.modifyMoney(type, -tempBezahlt.getMoney(type));
                 } catch (RuntimeException ex) {
-                    throw new RuntimeException("Nicht genug Wechselgeld im Automat");
+                    throw new WechselgeldException("Nicht genug Wechselgeld im Automat", cent, geldmenge);
                 }
             }
 
@@ -55,7 +58,7 @@ public class Kasse {
         }
 
         // Sollte noch Geld übrig sein konnte nicht alles gewechselt werden
-        if(cent != 0) throw new RuntimeException("Nicht genug Wechselgeld übrig");
+        if(cent != 0) throw new WechselgeldException("Nicht genug Wechselgeld übrig", cent, geldmenge);
 
         // Wenn alles erfolgreich war, setze die Geldmenge der Kasse auf die neue
         // geldmenge + setze die Menge der bezahlten Geldmenge auf die neue Geldmenge

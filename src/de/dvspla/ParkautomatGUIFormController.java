@@ -1,5 +1,6 @@
 package de.dvspla;
 
+import de.dvspla.exceptions.WechselgeldException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,6 +23,7 @@ public class ParkautomatGUIFormController implements Initializable {
 
     public HBox hboxBestand, hboxGezahlt, hboxRueckgeld, hboxButtons;
     public Label labelCurrentAmount;
+    public Button btnRandomAmount;
 
     private GeldmengeGUI bestand, gezahlt, rueckgeld;
 
@@ -48,6 +50,7 @@ public class ParkautomatGUIFormController implements Initializable {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        btnRandomAmount.setDisable(true);
     }
 
     @FXML
@@ -63,12 +66,13 @@ public class ParkautomatGUIFormController implements Initializable {
             try {
                 Geldmenge wechselgeld = kasse.bezahle(betragCent, new Geldmenge(gezahlt));
                 this.rueckgeld.setMoney(wechselgeld.getMoney());
-            } catch (RuntimeException ex) {
+            } catch (WechselgeldException | RuntimeException ex) {
                 new Alert(Alert.AlertType.WARNING, "Kann nicht wechseln:\n" + ex.getMessage(), ButtonType.CLOSE).show();
             }
             for(Button button : buttonMoneyTypes.keySet()) {
                 button.setDisable(true);
             }
+            btnRandomAmount.setDisable(false);
         }
     }
 
@@ -83,6 +87,7 @@ public class ParkautomatGUIFormController implements Initializable {
         for(Button button : buttonMoneyTypes.keySet()) {
             button.setDisable(false);
         }
+        btnRandomAmount.setDisable(true);
     }
 
 }

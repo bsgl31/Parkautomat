@@ -1,5 +1,7 @@
 package de.dvspla;
 
+import de.dvspla.exceptions.WechselgeldException;
+
 public class Parkautomat {
 
     public static void main(String[] args) {
@@ -19,7 +21,12 @@ public class Parkautomat {
         // ein 2€ Stücck weg.
         Geldmenge zahlung1 = new Geldmenge(0, 0, 0, 0, 0, 1, 0, 0);
         System.out.println("zahlung1 = " + zahlung1);
-        Geldmenge rueck1 = kasse.bezahle(260, zahlung1);
+        Geldmenge rueck1 = null;
+        try {
+            rueck1 = kasse.bezahle(260, zahlung1);
+        } catch (WechselgeldException e) {
+            e.printStackTrace();
+        }
         System.out.println("rueck1 = " + rueck1);
 
         System.out.println("kasse = " + kasse.getGeldmenge());
